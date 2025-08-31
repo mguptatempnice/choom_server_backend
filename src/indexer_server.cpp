@@ -120,10 +120,10 @@ int main() {
     }
 
     std::cout << "Indexer Service started. Listening on http://localhost:" << port << std::endl;
-    std::cout << "Press ENTER to quit." << std::endl;
-    
-    // Wait for the user to press Enter to stop the server.
-    std::cin.get();
+   while (true) {
+    std::this_thread::sleep_for(std::chrono::hours(24));
+}
+
 
     MHD_stop_daemon(daemon);
     std::cout << "Indexer service stopped." << std::endl;

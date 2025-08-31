@@ -103,9 +103,10 @@ int main() {
         }
 
         std::cout << "Search Service started. Listening on http://localhost:" << port << std::endl;
-        std::cout << "Press ENTER to quit." << std::endl;
-        
-        std::cin.get();
+        while (true) {
+    std::this_thread::sleep_for(std::chrono::hours(24));
+}
+
 
         MHD_stop_daemon(daemon);
         std::cout << "Search service stopped." << std::endl;
