@@ -255,8 +255,10 @@ int main() {
         std::cout << "  POST /crawl" << std::endl;
         std::cout << "  GET /search?q=..." << std::endl;
         std::cout << "Press ENTER to quit." << std::endl;
-        
-        std::cin.get();
+        while (true) {
+        std::this_thread::sleep_for(std::chrono::hours(24));
+    }
+
 
         MHD_stop_daemon(daemon);
         std::cout << "Server stopped." << std::endl;
