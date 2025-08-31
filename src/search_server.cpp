@@ -130,6 +130,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <thread>
 
 extern "C" {
 #include <microhttpd.h>
