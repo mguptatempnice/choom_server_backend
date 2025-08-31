@@ -23,12 +23,11 @@ COPY . .
 # Build project
 RUN mkdir -p build && cd build && cmake .. && make -j$(nproc)
 
-# Expose both ports (8080 search, 8081 indexer)
-EXPOSE 8080 8081
+# Expose ports
+EXPOSE 8080
 
-# Persistent disk path on Render will be /var/data
-# We make sure it's available for both indexer and search server
+# Persistent disk path for SQLite DB
 VOLUME ["/var/data"]
 
-# Start both servers; indexer in background, search in foreground
-CMD [ "sh", "-c", "/app/build/indexer_server --db /var/data/search.db & /app/build/search_server --db /var/data/search.db" ]
+# Run indexer first (once), then start search server
+CMD [ "sh", "-c", "/app/build/indexer_server --db /var/data/search.db && /app/build/search_server --db /var/data/search.db" ]
