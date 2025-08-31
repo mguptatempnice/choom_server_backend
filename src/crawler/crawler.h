@@ -2,7 +2,7 @@
 #define CRAWLER_H
 
 #include "../concurrency/concurrent_queue.h"
-#include "../database/Database.h" 
+#include "../database/database.h" 
 #include <string>
 #include <vector>
 #include <thread>
