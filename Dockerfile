@@ -30,4 +30,4 @@ EXPOSE 8080
 VOLUME ["/var/data"]
 
 # Run indexer first (once), then start search server
-CMD ["/app/build/search_server", "--db", "/var/data/search.db"]
+CMD ["/app/build/choom_server", "--db", "/var/data/search.db"]
